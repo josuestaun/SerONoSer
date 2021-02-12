@@ -1,0 +1,6 @@
+C:\Users\Josue\source\repos\SerONoSer\Entidades\bin\Debug\Entidades.dll
+C:\Users\Josue\source\repos\SerONoSer\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Josue\source\repos\SerONoSer\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Josue\source\repos\SerONoSer\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Josue\source\repos\SerONoSer\Entidades\obj\Debug\Entidades.dll
+C:\Users\Josue\source\repos\SerONoSer\Entidades\obj\Debug\Entidades.pdb
