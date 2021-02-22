@@ -125,18 +125,24 @@ namespace CapaDatos
         }
         private List<RespuestaDTO> RespuestasPregunta(dsCultura.RespuestasRow[] respuestasRows)
         {
-            //var respuestasDTO = respuestasRows.Select(r => new RespuestaDTO(r.NumPregunta, r.NumRespuesta, r.PosibleRespuesta, r.Valida, ((r.Valida) ? null : (r.GetRespNoValidasRows()[0].Explicacion))));
-            //return respuestasDTO.ToList();
             List<RespuestaDTO> respuestaDTOs = new List<RespuestaDTO>();
             foreach (dsCultura.RespuestasRow respuesta in respuestasRows)
             {
                 if (respuesta.GetRespNoValidasRows().Count() >= 1)
                 {
-                    respuestaDTOs.Add(new RespuestaDTO(respuesta.NumPregunta, respuesta.NumRespuesta, respuesta.PosibleRespuesta, respuesta.Valida, respuesta.GetRespNoValidasRows()[0].Explicacion));
+                    respuestaDTOs.Add(new RespuestaDTO(respuesta.NumPregunta, respuesta.NumRespuesta, respuesta.PosibleRespuesta, respuesta.Valida,
+                      respuesta.GetRespNoValidasRows()[0].Explicacion));
                 }
                 else
                 {
-                    respuestaDTOs.Add(new RespuestaDTO(respuesta.NumPregunta, respuesta.NumRespuesta, respuesta.PosibleRespuesta, respuesta.Valida));
+                    if (respuesta.Valida)
+                    {
+                        respuestaDTOs.Add(new RespuestaDTO(respuesta.NumPregunta, respuesta.NumRespuesta, respuesta.PosibleRespuesta, respuesta.Valida));
+                    }
+                    else
+                    {
+                        respuestaDTOs.Add(new RespuestaDTO(respuesta.NumPregunta, respuesta.NumRespuesta, respuesta.PosibleRespuesta, respuesta.Valida, "No tiene explicacion, búscala tu mismo"));
+                    }
                 }
             }
             return respuestaDTOs;
